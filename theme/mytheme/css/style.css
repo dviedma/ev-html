@@ -2426,7 +2426,7 @@ html.overlay__active .overlay {
 }
 /* line 6, ../scss/pages/_videos.scss */
 .main.videos h1 {
-  margin: 0 25px 50px;
+  margin: 0 0px 50px;
 }
 @media screen and (max-width: 1024px) {
   /* line 6, ../scss/pages/_videos.scss */
