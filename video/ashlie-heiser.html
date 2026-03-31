@@ -11,7 +11,7 @@
                                     
     
                 
-<title>Ashlie Heiser Video Interview | Executive Visions</title>
+<title>Ashlie Heiser | Executive Visions</title>
 <meta name="description" content="EVI&#039;s 2-minute Cinematic Trailer Celebrating 34 years Of Excellence in Global Experiential Marketing!
 " />
 <meta name="keywords" content="" />
@@ -28,20 +28,20 @@
 <meta name="revisit-after" content="31 days" />
 <meta name="VW96.objecttype" content="corporate entertainment, event management, corporate events, corporate event planners, corporate event entertainment, event marketing, corporate event planning, production company, event planning, entertainment agency, event marketing services" />
 
-<meta name="DC.Title" content="Ashlie Heiser Video Interview | Executive Visions" />
+<meta name="DC.Title" content="Ashlie Heiser | Executive Visions" />
 <meta name="DC.Subject" content="EVI&#039;s 2-minute Cinematic Trailer Celebrating 34 years Of Excellence in Global Experiential Marketing!
 " />
 <meta name="DC.Description" content="EVI&#039;s 2-minute Cinematic Trailer Celebrating 34 years Of Excellence in Global Experiential Marketing!
 " />
 <meta name="DC.Coverage.PlaceName" content="Global" />
 
-<meta content='Ashlie Heiser Video Interview | Executive Visions' property='og:title'>
+<meta content='Ashlie Heiser | Executive Visions' property='og:title'>
 <meta content='article' property='og:type'>
 <meta content='/theme/mytheme/images/facebookshare-asset-evi-metal.jpeg' property='og:image'>
 <meta content='EVI&#039;s 2-minute Cinematic Trailer Celebrating 34 years Of Excellence in Global Experiential Marketing!
 ' property='og:description'>
 
-<meta content='Ashlie Heiser Video Interview | Executive Visions' name='twitter:title'>
+<meta content='Ashlie Heiser | Executive Visions' name='twitter:title'>
 <meta content='EVI&#039;s 2-minute Cinematic Trailer Celebrating 34 years Of Excellence in Global Experiential Marketing!
 ' name='twitter:description'>
 
@@ -262,7 +262,9 @@
         <div class="main videos">
 
                         
-            <h1>Ashlie Heiser Video Interview</h1>
+            <h1>Ashlie Heiser</h1>
+
+            <div id="protected-content" style="position: relative;">
 
             <iframe src="https://player.vimeo.com/video/1178472400" width="100%" height="500" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
@@ -327,10 +329,52 @@
                 }
 
             </script>
+                <div id="video-interviews-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; z-index: 10;">
+                    <p style="font-size: 15px; color: #555; margin: 0;">Enter password to view this content</p>
+                    <div style="display: flex; gap: 8px;">
+                        <input id="video-interviews-pw" type="password" placeholder="Password" style="padding: 8px 14px; font-size: 15px; border: 1px solid #ccc; border-radius: 4px; outline: none; width: 180px;">
+                        <button onclick="eviCheckPassword()" class="button" style="border:none; cursor:pointer;font-size:16px;font-family: ProximaNova-Regular">Submit</button>
+                    </div>
+                    <p id="video-interviews-error" style="color: #c0392b; font-size: 13px; margin: 0; display: none;">Incorrect password. Please try again.</p>
+                </div>
+            </div>
 
         </div>
 
 
+
+        <script>
+        (function () {
+            var STORAGE_KEY = 'evi_michael_unlocked';
+            var overlay = document.getElementById('video-interviews-overlay');
+            var content = document.getElementById('protected-content');
+
+            if (localStorage.getItem(STORAGE_KEY) === 'true') {
+                overlay.style.display = 'none';
+            } else {
+                content.style.height = '300px';
+                content.style.overflow = 'hidden';
+            }
+
+            window.eviCheckPassword = function () {
+                var input = document.getElementById('video-interviews-pw');
+                if (input.value === 'Fl@sh!') {
+                    localStorage.setItem(STORAGE_KEY, 'true');
+                    overlay.style.display = 'none';
+                    content.style.height = '';
+                    content.style.overflow = '';
+                } else {
+                    document.getElementById('video-interviews-error').style.display = 'block';
+                    input.value = '';
+                    input.focus();
+                }
+            };
+
+            document.getElementById('video-interviews-pw').addEventListener('keydown', function (e) {
+                if (e.key === 'Enter') window.eviCheckPassword();
+            });
+        })();
+        </script>
 
         <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
 
