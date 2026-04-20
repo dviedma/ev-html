@@ -311,7 +311,7 @@
                         <a href="video/bruce-ambrose.html" style="font-size: 16px; color: #efb41d; text-decoration: none; font-weight: 600;">Bruce Ambrose</a>
                     </li>
                     <li>
-                        <a href="video/chaitali.html" style="font-size: 16px; color: #efb41d; text-decoration: none; font-weight: 600;">Chaitali</a>
+                        <a href="video/chaitali.html" style="font-size: 16px; color: #efb41d; text-decoration: none; font-weight: 600;">Chaitali Patel</a>
                     </li>
                     <li>
                         <a href="video/chera-franks.html" style="font-size: 16px; color: #efb41d; text-decoration: none; font-weight: 600;">Chera Franks</a>
@@ -392,6 +392,80 @@
 
                 document.getElementById('video-interviews-pw').addEventListener('keydown', function (e) {
                     if (e.key === 'Enter') window.eviCheckPassword();
+                });
+            })();
+        </script>
+
+        <!-- Marto Family Home Videos (password protected) -->
+        <div class=" main videos video-interviews-section" style="padding-top:0">
+
+            <div id="marto-family-protected-content" style="position: relative;">
+
+                <h1 style="margin-left:0">Marto Family Home Videos</h1>
+
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li>
+                        <a href="video/south-pacific-at-the-martos.html" style="font-size: 16px; color: #efb41d; text-decoration: none; font-weight: 600;">South Pacific at the Marto's</a>
+                    </li>
+                    <li>
+                        <a href="video/marto-sports.html" style="font-size: 16px; color: #efb41d; text-decoration: none; font-weight: 600;">Marto Sports</a>
+                    </li>
+                    <li>
+                        <a href="video/ski-trip-1983.html" style="font-size: 16px; color: #efb41d; text-decoration: none; font-weight: 600;">Ski Trip 1983</a>
+                    </li>
+                    <li>
+                        <a href="video/marto-mottek-ski-trip-1985.html" style="font-size: 16px; color: #efb41d; text-decoration: none; font-weight: 600;">Marto Mottek Ski Trip 1985</a>
+                    </li>
+                    <li>
+                        <a href="video/one-hot-summer-1990.html" style="font-size: 16px; color: #efb41d; text-decoration: none; font-weight: 600;">One Hot Summer 1990</a>
+                    </li>
+                    <li>
+                        <a href="video/utah-boys-trip.html" style="font-size: 16px; color: #efb41d; text-decoration: none; font-weight: 600;">Utah Boys Trip</a>
+                    </li>
+                </ul>
+
+                <div id="marto-family-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; z-index: 10;">
+                    <p style="font-size: 18px; color: #555; margin: 0;">Enter password to view Marto Family Videos</p>
+                    <div style="display: flex; gap: 8px;">
+                        <input id="marto-family-pw" type="password" placeholder="Password" style="padding: 8px 14px; font-size: 15px; border: 1px solid #ccc; border-radius: 4px; outline: none; width: 180px;">
+                        <button onclick="eviCheckMartoPassword()" class="button" style="border:none; cursor:pointer;font-size:16px;font-family: ProximaNova-Regular">Submit</button>
+                    </div>
+                    <p id="marto-family-error" style="color: #c0392b; font-size: 13px; margin: 0; display: none;">Incorrect password. Please try again.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <script>
+            (function () {
+                var STORAGE_KEY = 'evi_marto_family_unlocked';
+                var overlay = document.getElementById('marto-family-overlay');
+                var content = document.getElementById('marto-family-protected-content');
+
+                if (localStorage.getItem(STORAGE_KEY) === 'true') {
+                    overlay.style.display = 'none';
+                } else {
+                    content.style.height = '300px';
+                    content.style.overflow = 'hidden';
+                }
+
+                window.eviCheckMartoPassword = function () {
+                    var input = document.getElementById('marto-family-pw');
+                    if (input.value === 'MIMMIM') {
+                        localStorage.setItem(STORAGE_KEY, 'true');
+                        overlay.style.display = 'none';
+                        content.style.height = '';
+                        content.style.overflow = '';
+                    } else {
+                        document.getElementById('marto-family-error').style.display = 'block';
+                        input.value = '';
+                        input.focus();
+                    }
+                };
+
+                document.getElementById('marto-family-pw').addEventListener('keydown', function (e) {
+                    if (e.key === 'Enter') window.eviCheckMartoPassword();
                 });
             })();
         </script>
